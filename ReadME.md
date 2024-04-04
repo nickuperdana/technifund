@@ -1,6 +1,5 @@
 ## ~~What~~ Why is **TechniFund**
 
-
 TechniFund is a free, down-to-earth investor's best friend for quality investments in the Indonesian Stock Market (Bursa Saham Indonesia).
 
 TechniFund is more than just a calculator. It is capable of performing tasks that produce valuable insights for your trading and investment strategies in stock equity.
