@@ -666,7 +666,7 @@ def clear_terminal(sec):
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def version():
-    return '<> TechniFund v0.1.0'
+    return '<> TechniFund v0.1.0-alpha'
 
 def num_only_please():
     print('Please input numbers only.')
