@@ -393,7 +393,6 @@ class Setting_AverageCalculator:
                 self.menu_three_delete()
                 clear_terminal(0)
             elif u_input.upper() == 'C':
-                # print('You selected C')
                 self.menu_three_calculate_trade()
                 clear_terminal(0)
             else:
@@ -557,7 +556,6 @@ Press [Y] to continue deletion, or [N] to cancel: ''')
                         print(f'{version()}\n>> [X.3.D] Delete any row:\n\nPlease input valid option as shown examples.\n')
                         clear_terminal(2)
             else:
-                # user_input_emptydel = input('No entry/data for deletetion.\n\nPress any to continue: ')
                 input('No entry/data for deletetion.\n\nPress any to continue: ')
                 clear_terminal(0)
                 break
@@ -597,7 +595,7 @@ Buy-fee   : {round(self.avg_calculation.cac_buy_fee, 2)}
 Net buy   : {self.avg_calculation.cac_net_buy}
 Total sell: {self.avg_calculation.cac_tot_sell}
 Sell-fee  : {round(self.avg_calculation.cac_sell_fee, 2)}
-Net sell  : {self.avg_calculation.cac_net_sell}
+Net sell  : {round(self.avg_calculation.cac_net_sell, 2)}
 
 {'Loss  ' if self.avg_calculation.cac_prof_los < 0 else 'Profit'}    : {round(self.avg_calculation.cac_prof_los, 2)} ({round(self.avg_calculation.cac_prof_los_perc * 100, 2)}%)
 {'Net loss  ' if 0 < 0 else 'Net profit'}: {round(self.avg_calculation.cac_net_prof_los, 2)} ({round(self.avg_calculation.cac_net_prof_los_perc * 100, 2)}%)\n\n''')
@@ -633,10 +631,7 @@ Net sell  : {self.avg_calculation.cac_net_sell}
                             first_avg_stts = 'Average DOWN'
                         ttl_buy = sum([self.average_calculator_frame[i].acf_total_buy for i in range(len(self.average_calculator_frame))])
                         nt_buy = sum([self.average_calculator_frame[i].acf_net_buy for i in range(len(self.average_calculator_frame))])
-                        # print(f'{sum_lot}\n{first_avg}\n{final_avg}\n{ttl_buy}\n{nt_buy}\n')
                         self.result_ca_calculator(i_stc=self.average_calculator_frame[0].acf_stock, i_lot=sum_lot, i_tbuy=ttl_buy, i_nbuy=nt_buy, i_firstavg=first_avg, i_fnlavg=final_avg, i_avgstts=first_avg_stts, i_sprice=sell_price)
-                        # print('Len self average calculator frame:', len(self.average_calculator_frame))
-                        # break
                     save_input = str(input('Options:\n[SQ] to save and quit,\n[S] to save and reset,\n[Q] to unsave and quit,\nor other to unsave and reset\n\nSelect option: '))
                     if save_input.upper() == 'SQ':
                         clear_terminal(0)
@@ -650,14 +645,12 @@ Net sell  : {self.avg_calculation.cac_net_sell}
                         clear_terminal(0)
                         break
                     else:
-                        # print('\nData has been unsaved and calculator restarting ...')
                         clear_terminal(0)
                         pass
                 except:
                     clear_terminal(0)
                     print()
-                    num_only_please()
-                    
+                    num_only_please()        
             
 # border between classes and functions
 
@@ -666,7 +659,7 @@ def clear_terminal(sec):
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def version():
-    return '<> TechniFund v0.1.0-alpha'
+    return '<> TechniFund v0.1.1-alpha'
 
 def num_only_please():
     print('Please input numbers only.')
@@ -751,6 +744,7 @@ def main_menu():
                 else:
                     clear_terminal(0)
             else:
+                clear_terminal(0)
                 pass
         except:
             u_input_str = str(smenu_input)
@@ -766,7 +760,7 @@ def main_menu():
 # border between classes, functions, and main
 
 if __name__ == '__main__':
-    os.system("title TechniFund v.1.0.0")
+    os.system("title TechniFund v0.1.1-alpha")
     clear_terminal(0)
     setting_broker = Setting_BrokerFee()
     profit_calc = Setting_ProfitCalculator()
