@@ -69,10 +69,8 @@ As long as your computer runs Command Prompt/Powershell/Terminal/Notepad, **Tech
 - **Import Session** **(Coming soon!)**  
   Import previous or older session data to continue performing calculations based on that data.
 
-## Latest Version Remarks (v0.1.1-alpha)
-- Deleted unnecesary comments.
-- Minor bug fixed upon selected unlisted menu number to clean the terminal UI.
-- 'Net-sell' output rounding to the nearest 2 decimal digits.
+## Latest Version Remarks (v0.2.0-alpha)
+- Add about program menu, accessed by entering menu **[99]**
 
 ## Developer's Story  
 I graduated from the University of Indonesia with a major in Sociology. While I understand there may be some misconceptions about my studies (about what have I learnt and done mostly), I can summarize that I spent most of my time as a student learning both quantitative and qualitative social research, descriptive and inferential statistics, basic calculus, and various data processing tools, including SPSS, Excel, and Gephi. After graduation, I worked as a research and development officer at a governmental institution for about a year and a half. Following that, I transitioned to a senior analyst role in the business advisory department of a public affairs consulting firm. In both positions, my primary responsibilities included quantitative research and end-to-end data processing, from data collection to prediction and visualization. After resigning from my most recent position, I attended and completed a data science bootcamp to further enhance my mathematics and programming skills, which I believe will complement my existing business knowledge and experience.

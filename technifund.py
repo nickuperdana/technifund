@@ -652,6 +652,54 @@ Net sell  : {round(self.avg_calculation.cac_net_sell, 2)}
                     print()
                     num_only_please()        
             
+class ScalpingPlan:
+    def __init__(self, i_stock, i_lot, i_bprice, i_avg, i_nbuy, i_prcplan):
+        self.sp_stock = i_stock
+        self.sp_lot = i_lot
+        self.sp_bprice = i_bprice
+        self.sp_avg = i_avg
+        self.sp_nbuy = i_nbuy
+        self.sp_prcplan = i_prcplan
+class Setting_ScalpingPlan:
+    def __init__(self):
+        self.scalping_array = []
+        
+    def prior_menu_four(self):
+        pc_import = profit_calc.profit_calculator
+        ac_import = average_calc.average_calculator_frame
+        stock_name = ''
+        stock_lot = 0
+        stock_bprice = 0
+        stock_avg = 0
+        stock_nbuy = 0
+        stock_pplan = 0
+        while True:
+            clear_terminal(0)
+            print(f'{version()}\n>> [X.4] Scalping Plan\n\nChoose Input Method:\n[1] Import data from Profit Calculator\n[2] Import data from Averaging Calculator\n[3] Input new data manually\n\nor [Q] to cancel and quit.')
+            select_prior_four = str(input('Select menu: '))
+            if select_prior_four.upper() == 'Q':
+                clear_terminal(0)
+                break
+            elif select_prior_four == '1':
+                if len(pc_import) == 0:
+                    clear_terminal(0)
+                    print(f'{version()}\n>> [X.4] Scalping Plan\n\nAttention: Cannot import data from Profit Calculator\n\n>> No data has been saved to Profit Calculator.\n\nPlease wait ...')
+                    clear_terminal(3)
+                else:
+                    print('Entering data')
+                    clear_terminal(3)
+                    break
+            elif select_prior_four == '2':
+                print('Selected menu 2')
+                clear_terminal(2)
+                break
+            elif select_prior_four == '3':
+                print('Selected menu 3')
+                clear_terminal(2)
+                break
+            else:
+                pass
+        
 # border between classes and functions
 
 def clear_terminal(sec):
@@ -659,7 +707,7 @@ def clear_terminal(sec):
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def version():
-    return '<> TechniFund v0.1.1-alpha'
+    return '<> TechniFund v0.2.0-alpha'
 
 def num_only_please():
     print('Please input numbers only.')
@@ -668,6 +716,19 @@ def coming_soon_opt(menu):
     clear_terminal(0)
     print(f"Can't wait to use menu number {menu}, eh? Relax, it will coming soon!\n\nGetting you back to the main menu ...")
     clear_terminal(4)
+
+def about_technifund():
+    while True:
+        clear_terminal(0)
+        print(f'{version()}\n>> [X.99] About Technifund\n')
+        print('A down-to-earth stock trading calculator for every Indonesian Stock Market investor.\nDeveloped by: Nicku R. Perdana\n\nGitHub: https://github.com/nickuperdana/technifund\n')
+        abt_input = str(input('Press any to return: '))
+        if abt_input:
+            clear_terminal(0)
+            break
+        else:
+            clear_terminal(0)
+            break
 
 def su_mem():
     while True:
@@ -722,7 +783,8 @@ def main_menu():
                 average_calc.menu_three_framer()
                 average_calc.menu_three()
             elif u_input == 4:
-                coming_soon_opt(u_input)
+                # coming_soon_opt(u_input)
+                scalp_plan.prior_menu_four()
             elif u_input == 5:
                 coming_soon_opt(u_input)
             elif u_input == 6:
@@ -732,7 +794,7 @@ def main_menu():
             elif u_input == 88:
                 coming_soon_opt(u_input)
             elif u_input == 99:
-                coming_soon_opt(u_input)
+                about_technifund()
             elif u_input == 0:
                 clear_terminal(0)
                 print(f'{version()}\n>> [X.0] Exit program:\n')
@@ -760,11 +822,12 @@ def main_menu():
 # border between classes, functions, and main
 
 if __name__ == '__main__':
-    os.system("title TechniFund v0.1.1-alpha")
+    os.system(f"title TechniFund v0.2.0-alpha")
     clear_terminal(0)
     setting_broker = Setting_BrokerFee()
     profit_calc = Setting_ProfitCalculator()
     average_calc = Setting_AverageCalculator()
+    scalp_plan = Setting_ScalpingPlan()
     print(f'''{version()}
 Welcome to TechniFund (alpha version), your handy investment companion.\n
 Before we start, we have to complete prior setup for configuring the broker
